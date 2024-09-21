@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>URL Shortener</h1>
+    <form method="POST">
+        <label for="url">Enter URL to shorten:</label>
+        <input type="text" id="url" name="url" placeholder="Enter URL here" required>
+        <button type="submit">Shorten</button>
+    </form>
+
+    {% if short_url %}
+        <p>Shortened URL: <a href="/{{ short_url }}" target="_blank">{{ request.host_url }}{{ short_url }}</a></p>
+    {% endif %}
+
+    <footer style="margin-top: 30px; text-align: center;">
+        <p>Made with <3 by <a href="https://github.com/6cox9" target="_blank" style="color: #76D7C4;">6cox9</a></p>
+    </footer>
+</body>
+</html>
